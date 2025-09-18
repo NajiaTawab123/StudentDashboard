@@ -26,7 +26,6 @@ export default function Users() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animate user cards safely
       gsap.fromTo(
         ".user-card",
         { opacity: 0, y: 60 },
@@ -39,7 +38,6 @@ export default function Users() {
         }
       );
 
-      // Floating background icons
       gsap.to(".floating-icon", {
         y: 35,
         repeat: -1,
@@ -48,7 +46,6 @@ export default function Users() {
         ease: "sine.inOut",
       });
 
-      // Pulse effect for avatars
       gsap.to(".avatar", {
         scale: 1.1,
         repeat: -1,
@@ -58,7 +55,7 @@ export default function Users() {
       });
     }, containerRef);
 
-    return () => ctx.revert(); // cleanup on unmount
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -113,7 +110,7 @@ export default function Users() {
 
               {/* View Profile Button */}
               <button
-                onClick={() => navigate(`/users/${user.id}`)}
+                onClick={() => navigate(`/dashboard/users/${user.id}`)} // ✅ Fixed path
                 className="mt-4 w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-2.5 rounded-xl font-medium hover:opacity-90 transition"
               >
                 View Profile

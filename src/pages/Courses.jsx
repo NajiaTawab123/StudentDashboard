@@ -1,3 +1,4 @@
+// src/pages/Courses.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { BookOpen, Clock, User, Award, TrendingUp } from "lucide-react";
@@ -159,7 +160,7 @@ export default function Courses() {
           {filteredCourses.map((course) => (
             <div
               key={course.id}
-              onClick={() => navigate(`/courses/${course.id}`)}
+              onClick={() => navigate(`/dashboard/courses/${course.id}`)} // ✅ Corrected
               className="course-card bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer w-full"
             >
               <div className="flex justify-between items-start mb-4">
@@ -281,4 +282,3 @@ function getAttendanceColor(attendance) {
   if (attendance >= 75) return "text-amber-600";
   return "text-red-600";
 }
-
