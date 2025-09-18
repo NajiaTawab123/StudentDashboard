@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #8b5cf6, #d946ef);
+  --primary-color: #8b5cf6; /* Purple */
+  --secondary-color: #d946ef; /* Pinkish Lilac */
+  --background-color: #f9f8ff; /* Very light lilac background */
+  --text-color: #333;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+  --radius: 1.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Root container */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ============================
+   Floating Study Icons
+   ============================ */
+.floating-icon {
+  position: absolute;
+  opacity: 0.18;
+  animation: float 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.floating-icon.large {
+  width: 120px;
+  height: 120px;
+}
+
+.floating-icon.medium {
+  width: 90px;
+  height: 90px;
+}
+
+.floating-icon.small {
+  width: 70px;
+  height: 70px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+/* ============================
+   Cards (for Dashboard, Users, etc.)
+   ============================ */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.25);
+}
+
+/* Card headers */
+.card-header {
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* ============================
+   Buttons
+   ============================ */
+.button-primary {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
+}
+
+/* ============================
+   Utility Classes
+   ============================ */
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow);
+}
